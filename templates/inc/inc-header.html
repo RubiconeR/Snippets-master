@@ -22,11 +22,6 @@
                             Посмотреть сниппеты
                         </a>
                     </li>
-                    <li class="form-inline">
-                        <a class="btn btn-outline-info" href="{% url 'user-rate' %}">
-                            Посмотреть сниппеты
-                        </a>
-                    </li>
                     {% if request.user.is_authenticated %}
                     <li class="form-inline">
                         <a class="btn btn-outline-info" href="{% url 'snippets-list' %}?filter=my">
