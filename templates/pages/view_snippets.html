@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Begin page content -->
+<main role="main" class="mt-3 flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1>{{ pagename }}</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p>На данной странице отображаются все созданные сниппеты.</p>
+                <hr>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col">
+                <form method="GET">
+                    <select name="lang" id="id_lang">
+                        <option value="py" {% if lang == "py" %}selected{% endif %}>python</option>
+                        <option value="js" {% if lang == "js" %}selected{% endif %}>javascript</option>
+                        <option value="cpp" {% if lang == "cpp" %}selected{% endif %}>C++</option>
+                    </select>
+                    <button type="submit">Применить</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">
+                            <a href="?sort={{ sort }}"> Название </a>
+                            {% if sort == 'name' %}<i class="fa-solid fa-sort-up"></i> {% endif %}
+                            {% if sort == '-name' %}<i class="fa-solid fa-sort-down"></i> {% endif %}
+                        </th>
+                        <th scope="col">Дата создания</th>
+                        <th scope="col">
+                            <a href="?sort_l={{ sort_l }}"> Язык </a>
+                            {% if sort_l == 'lang' %}<i class="fa-solid fa-sort-up"></i> {% endif %}
+                            {% if sort_l == '-lang' %}<i class="fa-solid fa-sort-down"></i> {% endif %}
+                        </th>
+                        <th scope="col">Автор</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for snippet in snippets %}
+                        <tr>
+                            <td scope="row">{{ snippet.id }}</td>
+                            <td>
+                                <a href="{% url 'snippet-detail' snippet.id %}">{{ snippet.name }}</a>
+                                {% if request.user.is_authenticated %}
+                                    <a href="{% url 'snippet-delete' snippet.id %}">
+                                        <i style="color: red" class="fa-solid fa-trash"></i>
+                                    </a>
+                                    <a href="">
+                                        <i style="color: #0069d9" class="fa-solid fa-pen"></i>
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td>{{ snippet.creation_date }}</td>
+                            <td>{{ snippet.lang }}</td>
+                            <td>{{ snippet.user.username|default:"Anonimus" }}</td>
+                        </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+                <div align="right">
+                    <i style="color: gray;">Всего сниппетов: 2</i>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

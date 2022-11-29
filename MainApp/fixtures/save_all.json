@@ -1,0 +1,110 @@
+[
+  {
+    "model": "MainApp.snippet",
+    "pk": 1,
+    "fields": {
+      "name": "Hello world Snippet",
+      "lang": "Python",
+      "code": "print(\"Hello world\")",
+      "creation_date": "2022-11-23T09:23:22.459Z",
+      "user": null,
+      "public": true
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 3,
+    "fields": {
+      "name": "Snippet2",
+      "lang": "js",
+      "code": "code JS",
+      "creation_date": "2022-11-23T11:38:08.883Z",
+      "user": null,
+      "public": true
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 4,
+    "fields": {
+      "name": "Пример222",
+      "lang": "py",
+      "code": "class Meta:         model = Snippet         # Описываем поля, которые будем заполнять в форме         fields = ['name', 'lang', 'code']         labels = {'name': '',                   'lang': '',                   'code': '',                   }         widgets = {             'name': TextInput(attrs={'placeholder': 'Название снипета'}),             'code': TextInput(attrs={'placeholder': 'Введите код'})",
+      "creation_date": "2022-11-23T11:48:33.735Z",
+      "user": null,
+      "public": true
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 5,
+    "fields": {
+      "name": "Snippet3",
+      "lang": "py",
+      "code": "pass",
+      "creation_date": "2022-11-23T13:50:28.149Z",
+      "user": 1,
+      "public": true
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 6,
+    "fields": {
+      "name": "Snippet4",
+      "lang": "js",
+      "code": "awdawdawdawdawdadawdawd\r\neawedawdawdawd",
+      "creation_date": "2022-11-24T07:26:14.881Z",
+      "user": 1,
+      "public": true
+    }
+  },
+  {
+    "model": "MainApp.comment",
+    "pk": 1,
+    "fields": {
+      "text": "дадада",
+      "creation_date": "2022-11-24T08:37:21.111Z",
+      "author": 1,
+      "snippet": 1
+    }
+  },
+  {
+    "model": "MainApp.comment",
+    "pk": 2,
+    "fields": {
+      "text": "Еще один коммент",
+      "creation_date": "2022-11-24T08:52:56.584Z",
+      "author": 1,
+      "snippet": 1
+    }
+  },
+  {
+    "model": "MainApp.comment",
+    "pk": 3,
+    "fields": {
+      "text": "Так",
+      "creation_date": "2022-11-24T09:20:40.398Z",
+      "author": 1,
+      "snippet": 1
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$yYOZSoFNF7an8MlO12BqSB$AhxVkj3ZZrw4lNnU6VYdeMZF71zHwNRDb30LVPGgSmY=",
+      "last_login": "2022-11-24T09:58:16.686Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@mail.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-11-23T12:51:10.815Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
